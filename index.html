@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Color Finder</title>
+  </head>
+  <body>
+    <div class="container my-1" id="wrapper">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title display-4 mx-auto">Color Finder</div>
+          <div class="card-text my-2">
+            <i
+              >Sandbox proof of concept: Search with predictive auto complete.
+              Click to copy a color feature. Copy as rgba or hex value.</i
+            >
+          </div>
+          <hr class="my-1" />
+
+          <div class="row text-center">
+            <div class="col-md-12">
+              <div id="az" class="card-text my-1 d-inline-block"></div>
+            </div>
+            <div class="col-md-7 border border-danger">
+              <form class="form-inline">
+                <div class="form-group mx-auto mt-1">
+                  <label for="input"
+                    ><i>Search Color Name / #hex code: </i>
+                  </label>
+                  <input
+                    id="input"
+                    type="text"
+                    class="form-control ml-2"
+                    onkeyup="predictiveSearch()"
+                    placeholder="Sky Blue / #87CEEB"
+                  />
+                </div>
+              </form>
+
+              <!-- alert color copy -->
+              <div id="alertInput"></div>
+            </div>
+            <div class="col-md-5 border border-danger">
+              <div id="outer_rgbaInput">
+                <input
+                  id="rgbaInput"
+                  type="text"
+                  class="form-control my-1 mb-0"
+                  placeholder="rgba:(0, 0, 0, 0.000)"
+                  style="text-align: center;"
+                  disabled
+                />
+              </div>
+
+              <div>
+                <label for="red">R: </label>
+                <input
+                  id="red"
+                  class="slider"
+                  type="range"
+                  name="red"
+                  value="0"
+                  min="0"
+                  step="1"
+                  max="255"
+                  oninput="rgbaInputVal(), extract_convert_format_RGB_values()"
+                  style="background: red;"
+                />
+              </div>
+              <div>
+                <label for="green">G: </label>
+                <input
+                  id="green"
+                  class="slider"
+                  type="range"
+                  name="green"
+                  value="0"
+                  min="0"
+                  step="1"
+                  max="255"
+                  oninput="rgbaInputVal(), extract_convert_format_RGB_values()"
+                  style="background: green;"
+                />
+              </div>
+
+              <div>
+                <label for="blue">B: </label>
+                <input
+                  id="blue"
+                  class="slider"
+                  type="range"
+                  name="blue"
+                  value="0"
+                  min="0"
+                  step="1"
+                  max="255"
+                  oninput="rgbaInputVal(), extract_convert_format_RGB_values()"
+                  style="background: blue;"
+                />
+              </div>
+
+              <div>
+                <label for="alpha">A: </label>
+                <input
+                  id="alpha"
+                  class="slider"
+                  type="range"
+                  name="alpha"
+                  value="1"
+                  min="0"
+                  step="0.001"
+                  max="1"
+                  oninput="rgbaInputVal(), extract_convert_format_RGB_values()"
+                  style="background: rgba(0,0,0,0.125);"
+                />
+              </div>
+            </div>
+          </div>
+
+          <h6 class="card-subtitle my-2 text-muted">Results:</h6>
+          <table class="card container py-1" id="results"></table>
+        </div>
+      </div>
+    </div>
+
+    <section class="container fixed-bottom">
+      <footer class="card text-center">By Douglas Chan &copy 2018</footer>
+    </section>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="colors/arrOfColorObjs.js"></script>
+
+    <script src="auto_complete.js"></script>
+    <script src="alphabet.js"></script>
+    <script src="rgba_Selector.js"></script>
+    <script src="rgba_to_hexadecimal.js"></script>
+    <script src="rgba_click_to_copy.js"></script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+html,
+body {
+  margin: 0;
+}
+
+#wrapper {
+  box-sizing: border-box;
+}
+
+/* Table Layout  */
+#results {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 15px;
+  opacity: 0;
+  box-sizing: border-box;
+}
+
+tr {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+}
+td {
+  display: inline-block;
+}
+
+.rightCell {
+  width: 75px;
+  float: right;
+  text-align: center;
+  cursor: pointer;
+}
+
+::-webkit-input-placeholder {
+  font-style: italic;
+  text-align: center;
+}
+:-moz-placeholder {
+  font-style: italic;
+  text-align: center;
+}
+::-moz-placeholder {
+  font-style: italic;
+  text-align: center;
+}
+:-ms-input-placeholder {
+  font-style: italic;
+  text-align: center;
+}
+
+.slider {
+  width: 90%;
+  appearance: none;
+  -webkit-appearance: none; /* removes default appearance */
+  border-radius: 15px;
+  opacity: 0.85;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+.slider::-webkit-slider-thumb {
+  cursor: pointer;
+}
+.slider::-moz-range-thumb {
+  cursor: pointer;
+}
+
+footer {
+  /* position: absolute; */
+  /* bottom: 0; */
+  color: gray;
+}
