@@ -78,4 +78,7 @@ footer {
   #search-group {
     display: block;
   }
+  #heading-title {
+    font-size: 2.5em;
+  }
 }
