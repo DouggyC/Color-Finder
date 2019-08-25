@@ -73,3 +73,9 @@ footer {
   /* bottom: 0; */
   color: gray;
 }
+
+@media (max-width: 991px) {
+  #search-group {
+    display: block;
+  }
+}
