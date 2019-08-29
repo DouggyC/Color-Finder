@@ -53,6 +53,9 @@ td {
 #rgbaInput {
   cursor: pointer;
 }
+#alertInput {
+  cursor: pointer;
+}
 
 .slider {
   width: 90%;
