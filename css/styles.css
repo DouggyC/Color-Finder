@@ -50,6 +50,10 @@ td {
   text-align: center;
 }
 
+#rgbaInput {
+  cursor: pointer;
+}
+
 .slider {
   width: 90%;
   appearance: none;
